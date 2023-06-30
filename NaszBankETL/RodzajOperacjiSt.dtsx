@@ -1,0 +1,2519 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/30/2023 10:09:47 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LQFAVEE"
+  DTS:CreatorName="DESKTOP-LQFAVEE\rhuk"
+  DTS:DTSID="{B70028B7-9928-4825-AC4C-4F15DE6DBB1A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5223.0"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package3"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{F7EE40BF-AD72-4604-BCCC-CE78C2659401}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{84ECB148-9659-4EB4-B9DD-699804ACC872}"
+      DTS:ObjectName="DESKTOP-LQFAVEE.NaszBankStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-LQFAVEE;Initial Catalog=NaszBankStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{84ECB148-9659-4EB4-B9DD-699804ACC872}DESKTOP-LQFAVEE.NaszBankStage;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankTransakcyjna]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{258099EE-A617-4FC8-9AE7-82C8E6B99346}"
+      DTS:ObjectName="DESKTOP-LQFAVEE.NaszBankTransakcyjna">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-LQFAVEE;Initial Catalog=NaszBankTransakcyjna;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{258099EE-A617-4FC8-9AE7-82C8E6B99346}DESKTOP-LQFAVEE.NaszBankTransakcyjna;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CD68543A-2ACA-4EE2-8762-8F9FFEB0830B}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1045"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1250"
+          DTS:ConnectionString="D:\Projekty\HUR\W10\OperacjeRodzaj.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Lp"
+              DTS:DTSID="{5B85BFC4-AA5C-4F3C-9C1A-8277644D7214}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rodzaj"
+              DTS:DTSID="{4C4004E2-8352-494F-AD2C-B82B8B9113F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rodzaj_ang"
+              DTS:DTSID="{F27BE3CA-A669-48B6-B342-9C5C8B5F53BC}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A039B7CA-61BE-4764-B033-7BEA293C5B73}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1045"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1250"
+          DTS:ConnectionString="D:\Projekty\HUR\W10\OperacjeTyp.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="typ"
+              DTS:DTSID="{B9C6DAD0-0503-489B-B91B-76649A829C39}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="typ_ang"
+              DTS:DTSID="{145B3ED7-8A70-4607-BA41-AD2EF5565675}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7C71AB4D-D9D3-44CE-BE39-EE1864CD2E45}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task Ładowanie tabeli ROdzajOperacjiSt"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Inputs[Data Conversion Input].Columns[rodzaj]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="rodzaj"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Inputs[Data Conversion Input].Columns[rodzaj_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="rodzaj_ang"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj_ang]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Output].Columns[Copy of rodzaj]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Output].Columns[Copy of rodzaj]"
+                      name="Copy of rodzaj"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Output].Columns[Copy of rodzaj_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Output].Columns[Copy of rodzaj_ang]"
+                      name="Copy of rodzaj_ang"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj_ang]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion Dostosowanie angielskich nazw dla TypOepracji"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Inputs[Data Conversion Input].Columns[typ]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="typ"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Inputs[Data Conversion Input].Columns[typ_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="typ_ang"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ_ang]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Output].Columns[Copy of typ]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Output].Columns[Copy of typ]"
+                      name="Copy of typ"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Output].Columns[Copy of typ_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Output].Columns[Copy of typ_ang]"
+                      name="Copy of typ_ang"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ_ang]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1045"
+              name="Flat File Source OperacjaTyp"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].ExternalColumns[typ]"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ]"
+                      name="typ"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].ExternalColumns[typ_ang]"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ_ang]"
+                      name="typ_ang"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].ExternalColumns[typ]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="typ" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].ExternalColumns[typ_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="typ_ang" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1250"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1045"
+              name="Flat File Source RodzajOperacji"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[Lp]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].ExternalColumns[Lp]"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[Lp]"
+                      name="Lp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].ExternalColumns[rodzaj]"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj]"
+                      name="rodzaj"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].ExternalColumns[rodzaj_ang]"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj_ang]"
+                      name="rodzaj_ang"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].ExternalColumns[Lp]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Lp" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].ExternalColumns[rodzaj]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="rodzaj" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].ExternalColumns[rodzaj_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="rodzaj_ang" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1250"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join AngielskiRodzaj"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Left Input].Columns[NazwaRodzajuOperacji]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="NazwaRodzajuOperacji"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output].Columns[NazwaRodzajuOperacji]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Left Input].Columns[IdRodzajuOperacji]"
+                      cachedDataType="i4"
+                      cachedName="IdRodzajuOperacji"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output].Columns[IdRodzajuOperacji]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Left Input].Columns[Typ]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Typ"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output].Columns[Typ]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Right Input].Columns[Copy of rodzaj]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of rodzaj"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[Copy of rodzaj]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Right Input].Columns[Copy of rodzaj_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of rodzaj_ang"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[Copy of rodzaj_ang]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[IdRodzajuOperacji]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[IdRodzajuOperacji]"
+                      name="IdRodzajuOperacji">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Left Input].Columns[IdRodzajuOperacji]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[Typ]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[Typ]"
+                      name="Typ">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Left Input].Columns[Typ]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[NazwaRodzajuOperacji]"
+                      codePage="1250"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[NazwaRodzajuOperacji]"
+                      name="NazwaRodzajuOperacji"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Left Input].Columns[NazwaRodzajuOperacji]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[Copy of rodzaj_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[Copy of rodzaj_ang]"
+                      name="Copy of rodzaj_ang">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Right Input].Columns[Copy of rodzaj_ang]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join AngielskiTyp"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Left Input].Columns[Typ]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Typ"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[Typ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Left Input].Columns[IdRodzajuOperacji]"
+                      cachedDataType="i4"
+                      cachedName="IdRodzajuOperacji"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[IdRodzajuOperacji]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Left Input].Columns[NazwaRodzajuOperacji]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="NazwaRodzajuOperacji"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[NazwaRodzajuOperacji]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Left Input].Columns[Copy of rodzaj_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of rodzaj_ang"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[Copy of rodzaj_ang]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Right Input].Columns[Copy of typ]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of typ"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output].Columns[Copy of typ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Right Input].Columns[Copy of typ_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of typ_ang"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output].Columns[Copy of typ_ang]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[IdRodzajuOperacji]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[IdRodzajuOperacji]"
+                      name="IdRodzajuOperacji">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Left Input].Columns[IdRodzajuOperacji]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[Typ]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[Typ]"
+                      name="Typ"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Left Input].Columns[Typ]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[NazwaRodzajuOperacji]"
+                      codePage="1250"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[NazwaRodzajuOperacji]"
+                      name="NazwaRodzajuOperacji">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Left Input].Columns[NazwaRodzajuOperacji]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[Copy of rodzaj_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[Copy of rodzaj_ang]"
+                      name="Copy of rodzaj_ang">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Left Input].Columns[Copy of rodzaj_ang]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[Copy of typ_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[Copy of typ_ang]"
+                      name="Copy of typ_ang">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Right Input].Columns[Copy of typ_ang]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[RodzajOperacjiSt]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Typ]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Typ"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Typ]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[Typ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IdRodzajuOperacji]"
+                      cachedDataType="i4"
+                      cachedName="IdRodzajuOperacji"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdRodzajuOperacjiT]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[IdRodzajuOperacji]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NazwaRodzajuOperacji]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="NazwaRodzajuOperacji"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rodzaj]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[NazwaRodzajuOperacji]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of rodzaj_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of rodzaj_ang"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RodzajAngielski]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[Copy of rodzaj_ang]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of typ_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of typ_ang"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TypAngielski]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output].Columns[Copy of typ_ang]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdRodzajuOperacjiT]"
+                      dataType="i4"
+                      name="IdRodzajuOperacjiT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rodzaj]"
+                      codePage="1250"
+                      dataType="str"
+                      length="150"
+                      name="Rodzaj" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RodzajAngielski]"
+                      codePage="1250"
+                      dataType="str"
+                      length="150"
+                      name="RodzajAngielski" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Typ]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Typ" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TypAngielski]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="TypAngielski" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source źródło dla RodzajOperacjiSt"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[RodzajOperacji]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankTransakcyjna]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankTransakcyjna]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[IdRodzajuOperacji]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].ExternalColumns[IdRodzajuOperacji]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[IdRodzajuOperacji]"
+                      name="IdRodzajuOperacji"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[NazwaRodzajuOperacji]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].ExternalColumns[NazwaRodzajuOperacji]"
+                      length="150"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[NazwaRodzajuOperacji]"
+                      name="NazwaRodzajuOperacji"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[Typ]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].ExternalColumns[Typ]"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[Typ]"
+                      name="Typ"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].ExternalColumns[IdRodzajuOperacji]"
+                      dataType="i4"
+                      name="IdRodzajuOperacji" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].ExternalColumns[NazwaRodzajuOperacji]"
+                      codePage="1250"
+                      dataType="str"
+                      length="150"
+                      name="NazwaRodzajuOperacji" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].ExternalColumns[Typ]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Typ" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output].Columns[IdRodzajuOperacji]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output].Columns[IdRodzajuOperacji]"
+                      name="IdRodzajuOperacji" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output].Columns[NazwaRodzajuOperacji]"
+                      codePage="1250"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output].Columns[NazwaRodzajuOperacji]"
+                      name="NazwaRodzajuOperacji" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output].Columns[Typ]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output].Columns[Typ]"
+                      name="Typ" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort plik OperacjeRodzaj"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Inputs[Sort Input].Columns[Lp]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Lp"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[Lp]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Inputs[Sort Input].Columns[rodzaj]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="rodzaj"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Inputs[Sort Input].Columns[rodzaj_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="rodzaj_ang"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj_ang]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Inputs[Sort Input].Columns[Copy of rodzaj]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of rodzaj"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Output].Columns[Copy of rodzaj]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Inputs[Sort Input].Columns[Copy of rodzaj_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of rodzaj_ang"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Output].Columns[Copy of rodzaj_ang]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[Lp]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[Lp]"
+                      name="Lp">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[Lp]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[rodzaj]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[rodzaj]"
+                      name="rodzaj">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[rodzaj_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[rodzaj_ang]"
+                      name="rodzaj_ang">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output].Columns[rodzaj_ang]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[Copy of rodzaj]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[Copy of rodzaj]"
+                      name="Copy of rodzaj"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Output].Columns[Copy of rodzaj]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[Copy of rodzaj_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output].Columns[Copy of rodzaj_ang]"
+                      name="Copy of rodzaj_ang">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Output].Columns[Copy of rodzaj_ang]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort plik OperacjeTyp"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Inputs[Sort Input].Columns[typ]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="typ"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Inputs[Sort Input].Columns[typ_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="typ_ang"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ_ang]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Inputs[Sort Input].Columns[Copy of typ]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of typ"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Output].Columns[Copy of typ]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Inputs[Sort Input].Columns[Copy of typ_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of typ_ang"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Output].Columns[Copy of typ_ang]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output].Columns[typ]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output].Columns[typ]"
+                      name="typ">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output].Columns[typ_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output].Columns[typ_ang]"
+                      name="typ_ang">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output].Columns[typ_ang]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output].Columns[Copy of typ]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output].Columns[Copy of typ]"
+                      name="Copy of typ"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Output].Columns[Copy of typ]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output].Columns[Copy of typ_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output].Columns[Copy of typ_ang]"
+                      name="Copy of typ_ang">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Output].Columns[Copy of typ_ang]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort Przeplyw_Typ"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Inputs[Sort Input].Columns[IdRodzajuOperacji]"
+                      cachedDataType="i4"
+                      cachedName="IdRodzajuOperacji"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[IdRodzajuOperacji]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Inputs[Sort Input].Columns[Typ]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Typ"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[Typ]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Inputs[Sort Input].Columns[NazwaRodzajuOperacji]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="NazwaRodzajuOperacji"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[NazwaRodzajuOperacji]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Inputs[Sort Input].Columns[Copy of rodzaj_ang]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of rodzaj_ang"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[Copy of rodzaj_ang]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[IdRodzajuOperacji]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[IdRodzajuOperacji]"
+                      name="IdRodzajuOperacji">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[IdRodzajuOperacji]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[Typ]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[Typ]"
+                      name="Typ"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[Typ]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[NazwaRodzajuOperacji]"
+                      codePage="1250"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[NazwaRodzajuOperacji]"
+                      name="NazwaRodzajuOperacji">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[NazwaRodzajuOperacji]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[Copy of rodzaj_ang]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output].Columns[Copy of rodzaj_ang]"
+                      name="Copy of rodzaj_ang">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output].Columns[Copy of rodzaj_ang]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort Źródło"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Inputs[Sort Input].Columns[IdRodzajuOperacji]"
+                      cachedDataType="i4"
+                      cachedName="IdRodzajuOperacji"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[IdRodzajuOperacji]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Inputs[Sort Input].Columns[NazwaRodzajuOperacji]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="NazwaRodzajuOperacji"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[NazwaRodzajuOperacji]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Inputs[Sort Input].Columns[Typ]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Typ"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[Typ]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output].Columns[IdRodzajuOperacji]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output].Columns[IdRodzajuOperacji]"
+                      name="IdRodzajuOperacji">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[IdRodzajuOperacji]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output].Columns[NazwaRodzajuOperacji]"
+                      codePage="1250"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output].Columns[NazwaRodzajuOperacji]"
+                      name="NazwaRodzajuOperacji"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[NazwaRodzajuOperacji]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output].Columns[Typ]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output].Columns[Typ]"
+                      name="Typ">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output].Columns[Typ]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Inputs[Sort Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Data Conversion Output1]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Inputs[Sort Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Flat File Source Output1]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Merge Join Output1]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Sort Output]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Sort Output1]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Sort Output2]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Sort Output3]"
+              endId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task Czyszczenie tabeli ROdzajOperacjiSt"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C717169B-2A39-4E34-991C-8650255A5E8D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task Czyszczenie tabeli ROdzajOperacjiSt"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{84ECB148-9659-4EB4-B9DD-699804ACC872}"
+          SQLTask:SqlStatementSource="truncate table RodzajOperacjiSt" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{670D709D-1924-405F-A46C-BB7569B60814}"
+      DTS:From="Package\Execute SQL Task Czyszczenie tabeli ROdzajOperacjiSt"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="230.4,52.8"
+          Id="Package\Execute SQL Task Czyszczenie tabeli ROdzajOperacjiSt"
+          TopLeft="307.85714351249,64.999999943025" />
+        <NodeLayout
+          Size="318.4,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt"
+          TopLeft="319.28571496539,191.941176302344" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="423.05714351249,117.799999943025">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-28.5714285471001,74.1411763593194"
+              Start="0,0"
+              End="-28.5714285471001,66.6411763593194">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.0705881796597" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.0705881796597"
+                    Point2="0,37.0705881796597"
+                    Point3="-4,37.0705881796597" />
+                  <mssgle:LineSegment
+                    End="-24.5714285471001,37.0705881796597" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.5714285471001,37.0705881796597"
+                    Point2="-28.5714285471001,37.0705881796597"
+                    Point3="-28.5714285471001,41.0705881796597" />
+                  <mssgle:LineSegment
+                    End="-28.5714285471001,66.6411763593194" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="282.4,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt"
+          TopLeft="158.571428908986,21.4117646871141" />
+        <NodeLayout
+          Size="224,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source RodzajOperacji"
+          TopLeft="195.71428613091,89.4705881568696" />
+        <NodeLayout
+          Size="212.8,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Flat File Source OperacjaTyp"
+          TopLeft="485.000001032438,83.3529411034083" />
+        <NodeLayout
+          Size="200.8,64"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla Rodzaj operacji"
+          TopLeft="215.714286173485,158.294117508308" />
+        <NodeLayout
+          Size="183.2,67.2"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Data Conversion Dostosowanie angielskich nazw dla TypOepracji"
+          TopLeft="534.285715423068,161.811764573164" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Flat File Source Output]"
+          TopLeft="307.71428613091,131.07058815687">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.40000004257473,27.2235293514382"
+              Start="0,0"
+              End="8.40000004257473,19.7235293514382">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.61176467571912" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.61176467571912"
+                    Point2="0,13.6117646757191"
+                    Point3="4,13.6117646757191" />
+                  <mssgle:LineSegment
+                    End="4.40000004257473,13.6117646757191" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.40000004257473,13.6117646757191"
+                    Point2="8.40000004257473,13.6117646757191"
+                    Point3="8.40000004257473,17.6117646757191" />
+                  <mssgle:LineSegment
+                    End="8.40000004257473,19.7235293514382" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Flat File Source Output1]"
+          TopLeft="591.400001032438,124.952941103408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.4857143906306,36.8588234697557"
+              Start="0,0"
+              End="34.4857143906306,29.3588234697557">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.4294117348779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.4294117348779"
+                    Point2="0,18.4294117348779"
+                    Point3="4,18.4294117348779" />
+                  <mssgle:LineSegment
+                    End="30.4857143906306,18.4294117348779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.4857143906306,18.4294117348779"
+                    Point2="34.4857143906306,18.4294117348779"
+                    Point3="34.4857143906306,22.4294117348779" />
+                  <mssgle:LineSegment
+                    End="34.4857143906306,29.3588234697557" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeRodzaj"
+          TopLeft="286.428572038303,249.294117428543" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Data Conversion Output]"
+          TopLeft="316.114286173485,222.294117508308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67.1142858648179,26.9999999202352"
+              Start="0,0"
+              End="67.1142858648179,19.4999999202352">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.49999996011762" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.49999996011762"
+                    Point2="0,13.4999999601176"
+                    Point3="4,13.4999999601176" />
+                  <mssgle:LineSegment
+                    End="63.1142858648179,13.4999999601176" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.1142858648179,13.4999999601176"
+                    Point2="67.1142858648179,13.4999999601176"
+                    Point3="67.1142858648179,17.4999999601176" />
+                  <mssgle:LineSegment
+                    End="67.1142858648179,19.4999999202352" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Źródło"
+          TopLeft="58.5714286961118,176.317646928116" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[OLE DB Source Output]"
+          TopLeft="299.771428908986,63.0117646871141">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-192.400000212874,113.305882241002"
+              Start="0,0"
+              End="-192.400000212874,105.805882241002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.8882352730034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.8882352730034"
+                    Point2="0,16.8882352730034"
+                    Point3="-4,16.8882352730034" />
+                  <mssgle:LineSegment
+                    End="-188.400000212874,16.8882352730034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-188.400000212874,16.8882352730034"
+                    Point2="-192.400000212874,16.8882352730034"
+                    Point3="-192.400000212874,20.8882352730034" />
+                  <mssgle:LineSegment
+                    End="-192.400000212874,105.805882241002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="205.6,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiRodzaj"
+          TopLeft="37.8571429377307,244.894117451333" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Sort Output]"
+          TopLeft="124.171428696112,217.917646928116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.4857142416189,26.9764705232168"
+              Start="0,0"
+              End="16.4857142416189,19.4764705232168">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.48823526160841" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.48823526160841"
+                    Point2="0,13.4882352616084"
+                    Point3="4,13.4882352616084" />
+                  <mssgle:LineSegment
+                    End="12.4857142416189,13.4882352616084" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.4857142416189,13.4882352616084"
+                    Point2="16.4857142416189,13.4882352616084"
+                    Point3="16.4857142416189,17.4882352616084" />
+                  <mssgle:LineSegment
+                    End="16.4857142416189,19.4764705232168" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Sort Output1]"
+          TopLeft="286.428572038303,267.894117439938">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42.9714291005719,0"
+              Start="0,0"
+              End="-35.4714291005719,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-35.4714291005719,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort Przeplyw_Typ"
+          TopLeft="52.1428572538556,320.411764425029" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Merge Join Output]"
+          TopLeft="137.800000095793,286.494117451333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.917646973696"
+              Start="0,0"
+              End="0,26.417646973696">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.417646973696" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="191.2,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Merge Join AngielskiTyp"
+          TopLeft="324.285714976034,326.176470340897" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Sort Output2]"
+          TopLeft="217.742857253856,344.094117382963">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106.542857722178,0"
+              Start="0,0"
+              End="99.042857722178,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="99.042857722178,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\Sort plik OperacjeTyp"
+          TopLeft="555.000001181449,265.59999981768" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Data Conversion Output1]"
+          TopLeft="625.885715423068,229.011764573164">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.1142857583809,36.5882352445159"
+              Start="0,0"
+              End="19.1142857583809,29.0882352445159">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.2941176222579" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.2941176222579"
+                    Point2="0,18.2941176222579"
+                    Point3="4,18.2941176222579" />
+                  <mssgle:LineSegment
+                    End="15.1142857583809,18.2941176222579" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.1142857583809,18.2941176222579"
+                    Point2="19.1142857583809,18.2941176222579"
+                    Point3="19.1142857583809,22.2941176222579" />
+                  <mssgle:LineSegment
+                    End="19.1142857583809,29.0882352445159" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Sort Output3]"
+          TopLeft="555.000001181449,286.39999981768">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-39.5142862054158,60.5764705232168"
+              Start="0,0"
+              End="-32.0142862054158,60.5764705232168">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-15.7571431027079,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.7571431027079,0"
+                    Point2="-19.7571431027079,0"
+                    Point3="-19.7571431027079,4" />
+                  <mssgle:LineSegment
+                    End="-19.7571431027079,56.5764705232168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.7571431027079,56.5764705232168"
+                    Point2="-19.7571431027079,60.5764705232168"
+                    Point3="-23.7571431027079,60.5764705232168" />
+                  <mssgle:LineSegment
+                    End="-32.0142862054158,60.5764705232168" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination"
+          TopLeft="594.285715550793,344.364705630993" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt.Paths[Merge Join Output1]"
+          TopLeft="515.485714976033,352.576470340897">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78.8000005747592,12.588235290096"
+              Start="0,0"
+              End="71.3000005747592,12.588235290096">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.2711113537873,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.2711113537873,0"
+                    Point2="33.2711113537873,0"
+                    Point3="33.2711113537873,4" />
+                  <mssgle:LineSegment
+                    End="33.2711113537873,8.58823529009601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.2711113537873,8.58823529009601"
+                    Point2="33.2711113537873,12.588235290096"
+                    Point3="37.2711113537873,12.588235290096" />
+                  <mssgle:LineSegment
+                    End="71.3000005747592,12.588235290096" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Source źródło dla RodzajOperacjiSt">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task Ładowanie tabeli ROdzajOperacjiSt\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
