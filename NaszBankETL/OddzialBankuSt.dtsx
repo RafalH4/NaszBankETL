@@ -1,0 +1,1481 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/30/2023 10:59:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LQFAVEE"
+  DTS:CreatorName="DESKTOP-LQFAVEE\rhuk"
+  DTS:DTSID="{08B46826-6BAC-4ABB-B7B7-009068CBC786}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5223.0"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package3"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{10F3129B-3C21-45F1-B614-3C0F7E2CF4EA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0FCE14BE-1F2D-441C-BACE-E8115A69373D}"
+      DTS:ObjectName="DESKTOP-LQFAVEE.NaszBankStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-LQFAVEE;Initial Catalog=NaszBankStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{0FCE14BE-1F2D-441C-BACE-E8115A69373D}DESKTOP-LQFAVEE.NaszBankStage;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankTransakcyjna]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9B399A2F-AF7C-4583-95FF-5687FC60CA7D}"
+      DTS:ObjectName="DESKTOP-LQFAVEE.NaszBankTransakcyjna">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-LQFAVEE;Initial Catalog=NaszBankTransakcyjna;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{9B399A2F-AF7C-4583-95FF-5687FC60CA7D}DESKTOP-LQFAVEE.NaszBankTransakcyjna;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A028BEE6-13F5-43AC-AC7D-C86B0915E176}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task Ładowanie tabeli OddzialBankuSt"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split Dzielnice"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Inputs[Conditional Split Input].Columns[Dzielnica]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Dzielnica"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[Dzielnica]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Outputs[Brak dzielnicy]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Brak dzielnicy"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[Dzielnica]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(Dzielnica)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Outputs[Pozostałe wiersze]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Pozostałe wiersze"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Inputs[Derived Column Input].Columns[Dzielnica]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Dzielnica"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[Dzielnica]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Brak podziału"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Brak podziału"</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination OddzialBankuSt"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[OddzialBankuSt]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].Columns[Dzielnica]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Dzielnica"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[Dzielnica]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[Dzielnica]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].Columns[NazwaOddzialu]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaOddzialu"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[NazwaOddzialu]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[NazwaOddzialu]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].Columns[IdOddzialuBanku]"
+                      cachedDataType="i4"
+                      cachedName="IdOddzialuBanku"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[IdOddzialuBankuT]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[IdOddzialuBanku]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].Columns[IdMiasta]"
+                      cachedDataType="i4"
+                      cachedName="IdMiasta"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[IdMiastaT]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[IdMiasta]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].Columns[NazwaMiasta]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaMiasta"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[Miasto]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[NazwaMiasta]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].Columns[NazwaWojewodztwa]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaWojewodztwa"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[Wojewodztwo]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[NazwaWojewodztwa]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[IdOddzialuBankuT]"
+                      dataType="i4"
+                      name="IdOddzialuBankuT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[NazwaOddzialu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="NazwaOddzialu" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[IdMiastaT]"
+                      dataType="i4"
+                      name="IdMiastaT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[Dzielnica]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="Dzielnica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[Miasto]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="Miasto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input].ExternalColumns[Wojewodztwo]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="Wojewodztwo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source Kwerenda źródłowa"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT OddzialyBanku.IdOddzialuBanku, OddzialyBanku.Dzielnica, OddzialyBanku.IdMiasta, OddzialyBanku.NazwaOddzialu, Miasta.NazwaMiasta, Wojewodztwa.NazwaWojewodztwa
+FROM     OddzialyBanku INNER JOIN
+                  Miasta ON OddzialyBanku.IdMiasta = Miasta.IdMiasta INNER JOIN
+                  Wojewodztwa ON Miasta.IdWojewodztwa = Wojewodztwa.IdWojewodztwa</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankTransakcyjna]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LQFAVEE.NaszBankTransakcyjna]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[IdOddzialuBanku]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[IdOddzialuBanku]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[IdOddzialuBanku]"
+                      name="IdOddzialuBanku"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[Dzielnica]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[Dzielnica]"
+                      length="100"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[Dzielnica]"
+                      name="Dzielnica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[IdMiasta]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[IdMiasta]"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[IdMiasta]"
+                      name="IdMiasta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaOddzialu]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[NazwaOddzialu]"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaOddzialu]"
+                      name="NazwaOddzialu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaMiasta]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[NazwaMiasta]"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaMiasta]"
+                      name="NazwaMiasta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaWojewodztwa]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[NazwaWojewodztwa]"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaWojewodztwa]"
+                      name="NazwaWojewodztwa"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[IdOddzialuBanku]"
+                      dataType="i4"
+                      name="IdOddzialuBanku" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[Dzielnica]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="Dzielnica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[IdMiasta]"
+                      dataType="i4"
+                      name="IdMiasta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[NazwaOddzialu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="NazwaOddzialu" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[NazwaMiasta]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="NazwaMiasta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].ExternalColumns[NazwaWojewodztwa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="NazwaWojewodztwa" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[IdOddzialuBanku]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[IdOddzialuBanku]"
+                      name="IdOddzialuBanku" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[Dzielnica]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[Dzielnica]"
+                      name="Dzielnica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[IdMiasta]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[IdMiasta]"
+                      name="IdMiasta" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[NazwaOddzialu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[NazwaOddzialu]"
+                      name="NazwaOddzialu" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[NazwaMiasta]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[NazwaMiasta]"
+                      name="NazwaMiasta" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[NazwaWojewodztwa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[NazwaWojewodztwa]"
+                      name="NazwaWojewodztwa" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort IdOddzialuBanku"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Inputs[Sort Input].Columns[IdOddzialuBanku]"
+                      cachedDataType="i4"
+                      cachedName="IdOddzialuBanku"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdOddzialuBanku]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Inputs[Sort Input].Columns[Dzielnica]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Dzielnica"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[Dzielnica]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Inputs[Sort Input].Columns[IdMiasta]"
+                      cachedDataType="i4"
+                      cachedName="IdMiasta"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdMiasta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Inputs[Sort Input].Columns[NazwaOddzialu]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaOddzialu"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaOddzialu]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Inputs[Sort Input].Columns[NazwaMiasta]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaMiasta"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaMiasta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Inputs[Sort Input].Columns[NazwaWojewodztwa]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaWojewodztwa"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaWojewodztwa]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[IdOddzialuBanku]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[IdOddzialuBanku]"
+                      name="IdOddzialuBanku"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdOddzialuBanku]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[Dzielnica]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[Dzielnica]"
+                      name="Dzielnica">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[Dzielnica]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[IdMiasta]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[IdMiasta]"
+                      name="IdMiasta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdMiasta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[NazwaOddzialu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[NazwaOddzialu]"
+                      name="NazwaOddzialu">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaOddzialu]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[NazwaMiasta]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[NazwaMiasta]"
+                      name="NazwaMiasta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaMiasta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[NazwaWojewodztwa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output].Columns[NazwaWojewodztwa]"
+                      name="NazwaWojewodztwa">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaWojewodztwa]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All Złączenie strumieni"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 1].Columns[IdOddzialuBanku]"
+                      cachedDataType="i4"
+                      cachedName="IdOddzialuBanku"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[IdOddzialuBanku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdOddzialuBanku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 1].Columns[Dzielnica]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Dzielnica"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[Dzielnica]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[Dzielnica]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 1].Columns[IdMiasta]"
+                      cachedDataType="i4"
+                      cachedName="IdMiasta"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[IdMiasta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdMiasta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 1].Columns[NazwaOddzialu]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaOddzialu"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaOddzialu]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaOddzialu]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 1].Columns[NazwaMiasta]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaMiasta"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaMiasta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaMiasta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 1].Columns[NazwaWojewodztwa]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaWojewodztwa"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaWojewodztwa]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaWojewodztwa]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 2].Columns[IdOddzialuBanku]"
+                      cachedDataType="i4"
+                      cachedName="IdOddzialuBanku"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[IdOddzialuBanku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdOddzialuBanku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 2].Columns[Dzielnica]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Dzielnica"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[Dzielnica]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[Dzielnica]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 2].Columns[IdMiasta]"
+                      cachedDataType="i4"
+                      cachedName="IdMiasta"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[IdMiasta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdMiasta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 2].Columns[NazwaOddzialu]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaOddzialu"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaOddzialu]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaOddzialu]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 2].Columns[NazwaMiasta]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaMiasta"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaMiasta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaMiasta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 2].Columns[NazwaWojewodztwa]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NazwaWojewodztwa"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output].Columns[NazwaWojewodztwa]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaWojewodztwa]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdOddzialuBanku]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdOddzialuBanku]"
+                      name="IdOddzialuBanku" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[Dzielnica]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[Dzielnica]"
+                      name="Dzielnica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdMiasta]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[IdMiasta]"
+                      name="IdMiasta" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaOddzialu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaOddzialu]"
+                      name="NazwaOddzialu" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaMiasta]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaMiasta]"
+                      name="NazwaMiasta" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaWojewodztwa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1].Columns[NazwaWojewodztwa]"
+                      name="NazwaWojewodztwa" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[Brak dzielnicy]"
+              endId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Inputs[Derived Column Input]"
+              name="Brak dzielnicy"
+              startId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Outputs[Brak dzielnicy]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Inputs[Conditional Split Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[Pozostałe wiersze]"
+              endId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Inputs[Union All Input 1]"
+              name="Pozostałe wiersze"
+              startId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice.Outputs[Pozostałe wiersze]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[Sort Output]"
+              endId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[Union All Output 1]"
+              endId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku.Inputs[Sort Input]"
+              name="Union All Output 1"
+              startId="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task Czyszczenie tabeli OddzialBankuSt"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6A5D3FE7-8D7B-4A8C-9CBA-BBA514C51293}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task Czyszczenie tabeli OddzialBankuSt"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0FCE14BE-1F2D-441C-BACE-E8115A69373D}"
+          SQLTask:SqlStatementSource="truncate table OddzialBankuSt" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B080B760-25EE-4A1D-81E1-987601DEC7C0}"
+      DTS:From="Package\Execute SQL Task Czyszczenie tabeli OddzialBankuSt"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="309.6,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt"
+          TopLeft="297.142857775396,140.705882229607" />
+        <NodeLayout
+          Size="326.4,41.6"
+          Id="Package\Execute SQL Task Czyszczenie tabeli OddzialBankuSt"
+          TopLeft="307.85714351249,46.6470587826415" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="471.05714351249,88.2470587826415">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-98.7142857370936,52.4588234469656"
+              Start="0,0"
+              End="-98.7142857370936,44.9588234469656">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2294117234828" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2294117234828"
+                    Point2="0,26.2294117234828"
+                    Point3="-4,26.2294117234828" />
+                  <mssgle:LineSegment
+                    End="-94.7142857370936,26.2294117234828" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-94.7142857370936,26.2294117234828"
+                    Point2="-98.7142857370936,26.2294117234828"
+                    Point3="-98.7142857370936,30.2294117234828" />
+                  <mssgle:LineSegment
+                    End="-98.7142857370936,44.9588234469656" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="245.6,51.2"
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa"
+          TopLeft="195.71428613091,17.5882352787009" />
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Conditional Split Dzielnice"
+          TopLeft="246.428571953153,97.8823528553788" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[OLE DB Source Output]"
+          TopLeft="318.51428613091,68.7882352787009">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.514285822243,29.0941175766779"
+              Start="0,0"
+              End="27.514285822243,21.5941175766779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.547058788339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.547058788339"
+                    Point2="0,14.547058788339"
+                    Point3="4,14.547058788339" />
+                  <mssgle:LineSegment
+                    End="23.514285822243,14.547058788339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.514285822243,14.547058788339"
+                    Point2="27.514285822243,14.547058788339"
+                    Point3="27.514285822243,18.547058788339" />
+                  <mssgle:LineSegment
+                    End="27.514285822243,21.5941175766779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Derived Column"
+          TopLeft="268.571429143147,181.235293958787" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[Brak dzielnicy]"
+          TopLeft="345.50000054815,139.482352855379">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.7529411034085"
+              Start="0,0"
+              End="0,34.2529411034085">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.2529411034085" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.67693359375,11.3217830517042,61.3538671875,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Union All Złączenie strumieni"
+          TopLeft="476.428572442763,230.176470386477" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[Pozostałe wiersze]"
+          TopLeft="377.89523861982,139.482352855379">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158.533333822943,90.6941175310978"
+              Start="0,0"
+              End="158.533333822943,83.1941175310978">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4171267534369" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4171267534369"
+                    Point2="0,21.4171267534369"
+                    Point3="4,21.4171267534369" />
+                  <mssgle:LineSegment
+                    End="154.533333822943,21.4171267534369" />
+                  <mssgle:CubicBezierSegment
+                    Point1="154.533333822943,21.4171267534369"
+                    Point2="158.533333822943,21.4171267534369"
+                    Point3="158.533333822943,25.4171267534369" />
+                  <mssgle:LineSegment
+                    End="158.533333822943,83.1941175310978" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="39.9053192552215,26.4171267534369,78.7226953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[Derived Column Output]"
+          TopLeft="421.371429143147,202.035293958787">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.057143299616,48.9411764276894"
+              Start="0,0"
+              End="47.557143299616,48.9411764276894">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.528571649808,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.528571649808,0"
+                    Point2="27.528571649808,0"
+                    Point3="27.528571649808,4" />
+                  <mssgle:LineSegment
+                    End="27.528571649808,44.9411764276894" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.528571649808,44.9411764276894"
+                    Point2="27.528571649808,48.9411764276894"
+                    Point3="31.528571649808,48.9411764276894" />
+                  <mssgle:LineSegment
+                    End="47.557143299616,48.9411764276894" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\Sort IdOddzialuBanku"
+          TopLeft="247.857143384766,273.764705642388" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[Union All Output 1]"
+          TopLeft="476.428572442763,256.576470386477">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-48.5714290579971,37.9882352559109"
+              Start="0,0"
+              End="-41.0714290579971,37.9882352559109">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-16.5079367133766,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.5079367133766,0"
+                    Point2="-20.5079367133766,0"
+                    Point3="-20.5079367133766,4" />
+                  <mssgle:LineSegment
+                    End="-20.5079367133766,33.9882352559109" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.5079367133766,33.9882352559109"
+                    Point2="-20.5079367133766,37.9882352559109"
+                    Point3="-24.5079367133766,37.9882352559109" />
+                  <mssgle:LineSegment
+                    End="-41.0714290579971,37.9882352559109" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="247.2,41.6"
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt"
+          TopLeft="497.85714391695,310.141176222579" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt.Paths[Sort Output]"
+          TopLeft="427.857143384766,300.164705642388">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.0000005321844,30.7764705801919"
+              Start="0,0"
+              End="62.5000005321844,30.7764705801919">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="25.5555557802557,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5555557802557,0"
+                    Point2="29.5555557802557,0"
+                    Point3="29.5555557802557,4" />
+                  <mssgle:LineSegment
+                    End="29.5555557802557,26.7764705801919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.5555557802557,26.7764705801919"
+                    Point2="29.5555557802557,30.7764705801919"
+                    Point3="33.5555557802557,30.7764705801919" />
+                  <mssgle:LineSegment
+                    End="62.5000005321844,30.7764705801919" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Source Kwerenda źródłowa">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task Ładowanie tabeli OddzialBankuSt\OLE DB Destination OddzialBankuSt">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
